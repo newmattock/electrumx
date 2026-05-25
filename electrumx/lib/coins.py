@@ -695,6 +695,37 @@ class BitcoinSegwit(Bitcoin):
     NAME = "BitcoinSegwit"  # support legacy name
 
 
+class Bitgesell(BitcoinMixin, Coin):
+    NAME = "Bitgesell"
+    SHORTNAME = "BGL"
+    NET = "mainnet"
+    DESERIALIZER = lib_tx.DeserializerSegWit
+    P2PKH_VERBYTE = bytes.fromhex("0a")
+    P2SH_VERBYTES = (bytes.fromhex("19"),)
+    WIF_BYTE = bytes.fromhex("80")
+    GENESIS_HASH = ('00000018cdcfeeb4dfdebe9392b855cf'
+                    'ea7d6ddb953ef13f974b58773606d53d')
+    TX_COUNT = 946728933
+    TX_COUNT_HEIGHT = 824000
+    TX_PER_BLOCK = 4000
+    RPC_PORT = 8332
+    REORG_LIMIT = 1000
+
+
+class BitgesellTestnet(Bitgesell):
+    NET = "testnet"
+    SHORTNAME = "TBGL"
+    P2PKH_VERBYTE = bytes.fromhex("22")
+    P2SH_VERBYTES = (bytes.fromhex("32"),)
+    WIF_BYTE = bytes.fromhex("ef")
+    XPUB_VERBYTES = bytes.fromhex("043587cf")
+    XPRV_VERBYTES = bytes.fromhex("04358394")
+    TX_COUNT = 67845391
+    TX_COUNT_HEIGHT = 2550000
+    TX_PER_BLOCK = 900
+    RPC_PORT = 18332
+
+
 class BitcoinGold(EquihashMixin, BitcoinMixin, Coin):
     CHUNK_SIZE = 252
     NAME = "BitcoinGold"
