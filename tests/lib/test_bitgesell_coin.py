@@ -15,6 +15,8 @@ def test_bitgesell_mainnet_params_match_core():
     assert coin.P2PKH_VERBYTE == bytes([10])
     assert coin.P2SH_VERBYTES == (bytes([25]),)
     assert coin.WIF_BYTE == bytes([128])
+    assert coin.TX_COUNT == 946728933
+    assert coin.TX_COUNT_HEIGHT == 824000
     assert coin.RPC_PORT == 8332
 
 
@@ -29,4 +31,6 @@ def test_bitgesell_testnet_params_match_core():
     assert coin.WIF_BYTE == bytes([239])
     assert coin.XPUB_VERBYTES == bytes.fromhex("043587cf")
     assert coin.XPRV_VERBYTES == bytes.fromhex("04358394")
+    assert coin.TX_COUNT == 67845391
+    assert coin.TX_COUNT_HEIGHT == 2550000
     assert coin.RPC_PORT == 18332
